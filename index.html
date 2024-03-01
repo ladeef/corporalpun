@@ -25,7 +25,7 @@
         L.esri.basemapLayer('Imagery').addTo(map);
 
         // Add the specified layer from the provided URL
-        var layerUrl = "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/County_Health_Rankings_2023/FeatureServer/2/query?where=state+%3D+%27ga%27&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&returnEnvelope=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=html&token=";
+        var layerUrl = "https://dcgis.dekalbcountyga.gov/mapping/rest/services/Zoning_District/MapServer/0";
         L.esri.featureLayer({
             url: layerUrl,
             style: function (feature) {
