@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Hello, World!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esri Leaflet Map</title>
+    <!-- Include Esri Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/esri-leaflet@2.0.0/dist/esri-leaflet.css">
+    <!-- Include Leaflet CSS (if not already included) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <!-- Create a div to hold the map -->
+    <div id="map" style="height: 500px;"></div>
+
+    <!-- Include Esri Leaflet and Leaflet JavaScript libraries -->
+    <script src="https://unpkg.com/esri-leaflet@2.0.0/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([33.7490, -84.3880], 10); // Set initial center and zoom level
+
+        // Add the Esri World Imagery basemap
+        L.esri.basemapLayer('Imagery').addTo(map);
+
+        // Add the specified layer from the provided URL
+        var layerUrl = "https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/County_Health_Rankings_2023/FeatureServer/2/query?where=state+%3D+%27ga%27&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&resultType=none&distance=0.0&units=esriSRUnit_Meter&relationParam=&returnGeodetic=false&outFields=&returnGeometry=true&returnCentroid=false&returnEnvelope=false&featureEncoding=esriDefault&multipatchOption=xyFootprint&maxAllowableOffset=&geometryPrecision=&outSR=&defaultSR=&datumTransformation=&applyVCSProjection=false&returnIdsOnly=false&returnUniqueIdsOnly=false&returnCountOnly=false&returnExtentOnly=false&returnQueryGeometry=false&returnDistinctValues=false&cacheHint=false&orderByFields=&groupByFieldsForStatistics=&outStatistics=&having=&resultOffset=&resultRecordCount=&returnZ=false&returnM=false&returnExceededLimitFeatures=true&quantizationParameters=&sqlFormat=none&f=html&token=";
+        L.esri.featureLayer({
+            url: layerUrl,
+            style: function (feature) {
+                return { color: 'blue' }; // Customize the layer's style
+            }
+        }).addTo(map);
+    </script>
 </body>
 </html>
-
